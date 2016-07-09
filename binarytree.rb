@@ -4,7 +4,7 @@ class Binary
 
 	def initialize(numbers)
 		@root = Info.new(numbers[0], nil, nil)
-		main_tree_loop(numbers[0..-1])
+		main_tree_loop(numbers[0..10])
 	end
 
 
@@ -25,18 +25,6 @@ class Binary
 		end
 	end
 
-
-	def lefty(child, root)
-		if root.left.nil?
-			root.left = Info.new(child, nil, nil)
-			puts "#{child} gets placed on the left"
-		else
-			root = root.left
-			split(child, root)
-
-		end 
-	end
-
 	def righty(child, root)
 		if root.right.nil?
 			root.left = Info.new(child, nil, nil)
@@ -50,9 +38,21 @@ class Binary
 		end 
 	end 
 
+
+	def lefty(child, root)
+		if root.left.nil?
+			root.left = Info.new(child, nil, nil)
+			puts "#{child} gets placed on the left"
+		else
+			root = root.left
+			split(child, root)
+
+		end 
+	end
+
 end
 
-b = Binary.new([10,9,8,7,6,5,10,9,8,7,6])
+b = Binary.new([10,9,1,7,2,6,5,5])
 puts b.root
 
 
